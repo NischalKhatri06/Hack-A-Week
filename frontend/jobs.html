@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Vacancies - Nepal Gov Portal</title>
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/navbar.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/pages.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <h1>🏛️ Nepal Gov Portal</h1>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item"><a href="index.html">Home</a></li>
+                <li class="nav-item"><a href="jobs.html">Job Vacancies</a></li>
+                <li class="nav-item"><a href="careers.html">Career Advice</a></li>
+                <li class="nav-item"><a href="complaints.html">Complaints</a></li>
+                <li class="nav-item"><a href="documents.html">Documents</a></li>
+
+                <!-- Account Button (Far Right) -->
+                <li class="nav-item account-btn">
+                    <a href="account.html">Account</a>
+                </li>
+            </ul>
+
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="controls">
+            <input 
+                type="text" 
+                id="jobSearch" 
+                class="search-box" 
+                placeholder="Search jobs by title, department, or location..."
+                oninput="liveSearchJobs()"
+            >
+            <!-- Remove the Search button if you want, since it's now automatic -->
+        </div>
+        <div id="jobsGrid" class="grid"></div>
+    </div>
+
+    <!-- JOB MODAL -->
+    <div id="jobModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal('jobModal')">&times;</span>
+            <h2 style="color: #667eea; margin-bottom: 20px;">Add Job Vacancy</h2>
+            <form id="jobForm" onsubmit="addJob(event)">
+                <div class="form-group">
+                    <label>Job Title *</label>
+                    <input type="text" id="jobTitle" required>
+                </div>
+                <div class="form-group">
+                    <label>Department/Ministry *</label>
+                    <input type="text" id="department" required>
+                </div>
+                <div class="form-group">
+                    <label>Location *</label>
+                    <input type="text" id="location" required>
+                </div>
+                <div class="form-group">
+                    <label>Number of Vacancies *</label>
+                    <input type="number" id="vacancies" min="1" required>
+                </div>
+                <div class="form-group">
+                    <label>Application Deadline *</label>
+                    <input type="date" id="deadline" required>
+                </div>
+                <div class="form-group">
+                    <label>Salary Range</label>
+                    <input type="text" id="salary" placeholder="e.g., NPR 40,000 - 60,000">
+                </div>
+                <div class="form-group">
+                    <label>Educational Qualification *</label>
+                    <textarea id="education" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label>Experience Required</label>
+                    <textarea id="experience"></textarea>
+                </div>
+                <div class="form-group">
+                    <label>Additional Requirements</label>
+                    <textarea id="requirements"></textarea>
+                </div>
+                <button type="submit" class="btn" style="width: 100%;">Submit</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="js/jobs.js"></script>
+</body>
+</html>

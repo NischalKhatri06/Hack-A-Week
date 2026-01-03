@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Career Advice - Nepal Gov Portal</title>
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/navbar.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/pages.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <h1>🏛️ Nepal Gov Portal</h1>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item"><a href="index.html">Home</a></li>
+                <li class="nav-item"><a href="jobs.html">Job Vacancies</a></li>
+                <li class="nav-item"><a href="careers.html">Career Advice</a></li>
+                <li class="nav-item"><a href="complaints.html">Complaints</a></li>
+                <li class="nav-item"><a href="documents.html">Documents</a></li>
+
+                <!-- Account Button (Far Right) -->
+                <li class="nav-item account-btn">
+                    <a href="account.html">Account</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="controls">
+            <input type="text" id="careerSearch" class="search-box" placeholder="Search career paths...">
+            <button class="btn btn-success" onclick="openCareerModal()">+ Add Career Path</button>
+            <button class="btn" onclick="searchCareers()">Search</button>
+        </div>
+        <div id="careerGrid"></div>
+    </div>
+
+    <!-- CAREER MODAL -->
+    <div id="careerModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal('careerModal')">&times;</span>
+            <h2 style="color: #667eea; margin-bottom: 20px;">Add Career Path</h2>
+            <form id="careerForm" onsubmit="addCareer(event)">
+                <div class="form-group">
+                    <label>Job Position *</label>
+                    <input type="text" id="careerPosition" required>
+                </div>
+                <div class="form-group">
+                    <label>Department/Field *</label>
+                    <input type="text" id="careerDept" required>
+                </div>
+                <div class="form-group">
+                    <label>Required Education *</label>
+                    <textarea id="careerEducation" required placeholder="e.g., Bachelor's in Civil Engineering"></textarea>
+                </div>
+                <div class="form-group">
+                    <label>Required Skills (comma-separated) *</label>
+                    <input type="text" id="careerSkills" required placeholder="e.g., AutoCAD, Communication, Leadership">
+                </div>
+                <div class="form-group">
+                    <label>Career Pathway *</label>
+                    <textarea id="careerPath" required placeholder="Describe the steps to reach this position"></textarea>
+                </div>
+                <div class="form-group">
+                    <label>Exams/Certifications Required</label>
+                    <textarea id="careerExams" placeholder="e.g., Public Service Commission Exam"></textarea>
+                </div>
+                <button type="submit" class="btn" style="width: 100%;">Submit</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="js/careers.js"></script>
+</body>
+</html>

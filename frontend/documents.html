@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document Guide - Nepal Gov Portal</title>
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/navbar.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/pages.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <h1>🏛️ Nepal Gov Portal</h1>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item"><a href="index.html">Home</a></li>
+                <li class="nav-item"><a href="jobs.html">Job Vacancies</a></li>
+                <li class="nav-item"><a href="careers.html">Career Advice</a></li>
+                <li class="nav-item"><a href="complaints.html">Complaints</a></li>
+                <li class="nav-item"><a href="documents.html">Documents</a></li>
+
+                <!-- Account Button (Far Right) -->
+                <li class="nav-item account-btn">
+                    <a href="account.html">Account</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="controls">
+            <input type="text" id="docSearch" class="search-box" placeholder="Search for government services...">
+            <button class="btn btn-success" onclick="openDocModal()">+ Add Document Guide</button>
+            <button class="btn" onclick="searchDocuments()">Search</button>
+        </div>
+        <div id="documentsGrid"></div>
+    </div>
+
+    <!-- DOCUMENT MODAL -->
+    <div id="docModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal('docModal')">&times;</span>
+            <h2 style="color: #667eea; margin-bottom: 20px;">Add Document Guide</h2>
+            <form id="docForm" onsubmit="addDocument(event)">
+                <div class="form-group">
+                    <label>Service Name *</label>
+                    <input type="text" id="serviceName" required placeholder="e.g., Passport Application">
+                </div>
+                <div class="form-group">
+                    <label>Department/Office *</label>
+                    <input type="text" id="serviceOffice" required>
+                </div>
+                <div class="form-group">
+                    <label>Required Documents (one per line) *</label>
+                    <textarea id="serviceDocuments" required style="min-height: 150px;" placeholder="Enter each document on a new line"></textarea>
+                </div>
+                <div class="form-group">
+                    <label>Additional Information</label>
+                    <textarea id="serviceInfo" placeholder="Processing time, fees, etc."></textarea>
+                </div>
+                <button type="submit" class="btn" style="width: 100%;">Submit</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="js/documents.js"></script>
+</body>
+</html>
