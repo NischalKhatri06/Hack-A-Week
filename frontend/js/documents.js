@@ -64,5 +64,4 @@ function searchDocuments(){
     });
 }
 
-// INIT
 displayDocumentsList();

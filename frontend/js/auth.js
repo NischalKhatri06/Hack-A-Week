@@ -1,7 +1,6 @@
 const container = document.getElementById("accountContainer");
 let currentUser = JSON.parse(localStorage.getItem("user"));
 
-// SHOW LOGIN OR PROFILE
 if (!currentUser) {
     container.innerHTML = `
         <div class="auth-container">
@@ -19,7 +18,6 @@ if (!currentUser) {
     showProfile(currentUser);
 }
 
-// LOGIN FORM
 function showLogin() {
     container.innerHTML = `
         <div class="card">
@@ -40,7 +38,6 @@ function showLogin() {
     `;
 }
 
-// SIGNUP FORM
 function showSignup() {
     container.innerHTML = `
         <div class="card">
@@ -65,7 +62,6 @@ function showSignup() {
     `;
 }
 
-// SIGNUP FUNCTION
 async function signup(e) {
     e.preventDefault();
 
@@ -94,7 +90,6 @@ async function signup(e) {
     }
 }
 
-// LOGIN FUNCTION
 async function login(e) {
     e.preventDefault();
     const email = document.getElementById("loginEmail").value;
@@ -121,7 +116,6 @@ async function login(e) {
     }
 }
 
-// PROFILE
 function showProfile(user) {
     container.innerHTML = `
         <div class="card">
@@ -134,7 +128,6 @@ function showProfile(user) {
     `;
 }
 
-// LOGOUT
 function logout() {
     localStorage.removeItem("user");
     window.location.href = "account.html";

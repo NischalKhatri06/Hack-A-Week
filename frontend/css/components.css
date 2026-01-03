@@ -136,14 +136,12 @@ textarea {
     resize: vertical;
 }
 
-/* Grid */
 .grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
     gap: 25px;
 }
 
-/* Cards */
 .card {
     background: white;
     padding: 25px;
@@ -171,7 +169,6 @@ textarea {
     font-weight: 600;
 }
 
-/* Info Box */
 .info-box {
     background: #f7fafc;
     padding: 15px;
@@ -180,7 +177,6 @@ textarea {
     border-left: 4px solid #667eea;
 }
 
-/* Badges */
 .badge {
     display: inline-block;
     padding: 5px 12px;
@@ -226,23 +222,18 @@ textarea {
     }
 }
 
-/* Add these styles to fix centering - keeps all your original theme */
-
-/* Override container styles ONLY for centering */
 #accountContainer {
-    min-height: calc(100vh - 80px); /* Full height minus navbar */
+    min-height: calc(100vh - 80px); 
     display: flex !important;
     justify-content: center;
     align-items: center;
     padding: 20px;
 }
 
-/* Remove grid when auth is showing */
 #accountContainer:has(.auth-container) {
     grid-template-columns: unset !important;
 }
 
-/* Keep your original auth-container but remove min-height conflict */
 .auth-container {
     display: flex;
     justify-content: center;
@@ -251,7 +242,7 @@ textarea {
     width: 100%;
 }
 
-/* Your original auth-card - NO CHANGES */
+
 .auth-card {
     background: white;
     padding: 50px 40px;

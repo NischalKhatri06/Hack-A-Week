@@ -1,4 +1,4 @@
-// MODAL FUNCTIONS
+
 function openCareerModal() { 
     document.getElementById('careerModal').classList.add('active'); 
 }
@@ -6,7 +6,6 @@ function closeModal(modalId) {
     document.getElementById(modalId).classList.remove('active'); 
 }
 
-// FETCH CAREERS
 async function fetchCareers() {
     try {
         const res = await fetch('http://localhost:3000/api/careers');
@@ -16,7 +15,6 @@ async function fetchCareers() {
     }
 }
 
-// DISPLAY CAREERS
 async function displayCareersList() {
     const careers = await fetchCareers();
     displayCareers(careers);
@@ -41,7 +39,6 @@ function displayCareers(careerList) {
     `).join('');
 }
 
-// ADD CAREER
 async function addCareer(e) {
     e.preventDefault();
     const career = {
@@ -66,7 +63,6 @@ async function addCareer(e) {
     }
 }
 
-// DELETE CAREER
 async function deleteCareer(id) {
     if (!confirm("Delete this career path?")) return;
     try {
@@ -77,7 +73,6 @@ async function deleteCareer(id) {
     }
 }
 
-// SEARCH CAREERS
 function searchCareers() {
     const term = document.getElementById('careerSearch').value.toLowerCase();
     fetchCareers().then(careers => {
@@ -90,5 +85,4 @@ function searchCareers() {
     });
 }
 
-// INIT
 displayCareersList();

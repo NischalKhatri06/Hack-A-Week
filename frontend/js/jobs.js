@@ -1,14 +1,14 @@
-// MODAL
+
 function openJobModal() { document.getElementById('jobModal').classList.add('active'); }
 function closeModal(modalId) { document.getElementById(modalId).classList.remove('active'); }
 
-let allJobs = []; // Store all jobs for filtering
+let allJobs = [];
 
 // FETCH
 async function fetchJobs() {
     try {
         const res = await fetch('http://localhost:3000/api/jobs');
-        allJobs = await res.json(); // Store in global variable
+        allJobs = await res.json(); 
         displayJobs(allJobs);
         return allJobs;
     } catch(err) { 
@@ -17,7 +17,6 @@ async function fetchJobs() {
     }
 }
 
-// DISPLAY (without delete button)
 function displayJobs(jobs) {
     const grid = document.getElementById('jobsGrid');
     if(jobs.length === 0) { 
@@ -38,17 +37,14 @@ function displayJobs(jobs) {
     `).join('');
 }
 
-// LIVE SEARCH - filters as user types
 function liveSearchJobs() {
     const term = document.getElementById('jobSearch').value.toLowerCase().trim();
     
-    // If search is empty, show all jobs
     if (!term) {
         displayJobs(allJobs);
         return;
     }
     
-    // Filter jobs based on search term
     const filtered = allJobs.filter(j => 
         j.title.toLowerCase().includes(term) ||
         j.department.toLowerCase().includes(term) ||
@@ -58,5 +54,4 @@ function liveSearchJobs() {
     displayJobs(filtered);
 }
 
-// INIT
 fetchJobs();

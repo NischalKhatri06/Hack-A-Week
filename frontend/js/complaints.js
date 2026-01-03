@@ -128,5 +128,4 @@ function filterComplaints() {
     });
 }
 
-// INIT
 displayComplaintsList();
