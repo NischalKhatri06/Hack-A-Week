@@ -1,8 +1,8 @@
 .controls {
     background: white;
     padding: 25px;
-    border-radius: 15px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
     margin-bottom: 30px;
     display: flex;
     gap: 15px;
@@ -21,13 +21,13 @@
 
 .search-box:focus {
     outline: none;
-    border-color: #667eea;
+    border-color: #1e3a8a;
 }
 
 /* Buttons */
 .btn {
     padding: 12px 25px;
-    background: #667eea;
+    background: #1e3a8a;
     color: white;
     border: none;
     border-radius: 8px;
@@ -38,33 +38,33 @@
 }
 
 .btn:hover {
-    background: #5568d3;
+    background: #2563eb;
     transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+    box-shadow: 0 5px 15px rgba(30, 58, 138, 0.3);
 }
 
 .btn-success {
-    background: #48bb78;
+    background: #16a34a;
 }
 
 .btn-success:hover {
-    background: #38a169;
+    background: #15803d;
 }
 
 .btn-danger {
-    background: #f56565;
+    background: #DC143C;
 }
 
 .btn-danger:hover {
-    background: #e53e3e;
+    background: #B91C1C;
 }
 
 .btn-warning {
-    background: #ed8936;
+    background: #ea580c;
 }
 
 .btn-warning:hover {
-    background: #dd6b20;
+    background: #c2410c;
 }
 
 /* Modal */
@@ -90,7 +90,7 @@
 .modal-content {
     background: white;
     padding: 30px;
-    border-radius: 15px;
+    border-radius: 12px;
     max-width: 700px;
     width: 100%;
     max-height: 90vh;
@@ -107,7 +107,7 @@
 }
 
 .close-btn:hover {
-    color: #333;
+    color: #DC143C;
 }
 
 /* Forms */
@@ -131,6 +131,11 @@ input, textarea, select {
     font-family: inherit;
 }
 
+input:focus, textarea:focus, select:focus {
+    outline: none;
+    border-color: #1e3a8a;
+}
+
 textarea {
     min-height: 100px;
     resize: vertical;
@@ -145,36 +150,37 @@ textarea {
 .card {
     background: white;
     padding: 25px;
-    border-radius: 15px;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
     transition: all 0.3s;
+    border-left: 4px solid #1e3a8a;
 }
 
 .card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
 }
 
 .card-title {
-    color: #667eea;
+    color: #1e3a8a;
     font-size: 1.4em;
     margin-bottom: 10px;
     font-weight: 700;
 }
 
 .card-subtitle {
-    color: #764ba2;
+    color: #DC143C;
     font-size: 1.1em;
     margin-bottom: 15px;
     font-weight: 600;
 }
 
 .info-box {
-    background: #f7fafc;
+    background: #f0f9ff;
     padding: 15px;
     border-radius: 8px;
     margin: 10px 0;
-    border-left: 4px solid #667eea;
+    border-left: 4px solid #1e3a8a;
 }
 
 .badge {
@@ -187,33 +193,33 @@ textarea {
 }
 
 .badge-emergency {
-    background: #feb2b2;
-    color: #742a2a;
+    background: #fecaca;
+    color: #991b1b;
 }
 
 .badge-high {
-    background: #fbd38d;
-    color: #7c2d12;
+    background: #fed7aa;
+    color: #9a3412;
 }
 
 .badge-medium {
-    background: #9ae6b4;
-    color: #22543d;
+    background: #bfdbfe;
+    color: #1e40af;
 }
 
 .badge-low {
-    background: #bee3f8;
-    color: #2c5282;
+    background: #d1fae5;
+    color: #065f46;
 }
 
 .badge-pending {
-    background: #feebc8;
-    color: #7c2d12;
+    background: #fef3c7;
+    color: #92400e;
 }
 
 .badge-resolved {
-    background: #c6f6d5;
-    color: #22543d;
+    background: #d1fae5;
+    color: #065f46;
 }
 
 @media (max-width: 768px) {
@@ -242,19 +248,19 @@ textarea {
     width: 100%;
 }
 
-
 .auth-card {
     background: white;
     padding: 50px 40px;
-    border-radius: 20px;
-    box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
     max-width: 450px;
     width: 100%;
     text-align: center;
+    border-top: 5px solid #DC143C;
 }
 
 .auth-card h2 {
-    color: #667eea;
+    color: #1e3a8a;
     font-size: 2em;
     margin-bottom: 20px;
 }
@@ -262,6 +268,7 @@ textarea {
 .auth-card p {
     font-size: 1.2em;
     margin-bottom: 25px;
+    color: #666;
 }
 
 .auth-card .btn {

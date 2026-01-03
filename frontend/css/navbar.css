@@ -16,22 +16,48 @@
 }
 
 .logo {
-    padding: 15px 0;
+    padding: 12px 0;
+    display: flex;
+    align-items: center;
+    gap: 15px;
 }
 
-.logo h1 {
-    color: #667eea;
-    font-size: 1.5em;
+.logo-emblem {
+    width: 65px;
+    height: 65px;
+}
+
+.logo-text h1 {
+    color: #1e3a8a;
+    font-size: 1.3em;
+    font-weight: 700;
+    margin: 0;
+    line-height: 1.2;
+}
+
+.logo-text h2 {
+    color: #DC143C;
+    font-size: 1.1em;
+    font-weight: 600;
+    margin: 0;
+    line-height: 1.2;
+}
+
+.logo-text p {
+    color: #666;
+    font-size: 0.85em;
+    margin: 2px 0 0 0;
 }
 
 .nav-menu {
     display: flex;
     gap: 5px;
     list-style: none;
+    align-items: center;
 }
 
 .nav-item {
-    padding: 20px 20px;
+    padding: 20px 18px;
     cursor: pointer;
     transition: all 0.3s;
     border-bottom: 3px solid transparent;
@@ -46,13 +72,35 @@
 }
 
 .nav-item:hover {
-    color: #667eea;
+    color: #DC143C;
     background: #f7fafc;
 }
 
 .nav-item.active {
-    color: #667eea;
-    border-bottom-color: #667eea;
+    color: #DC143C;
+    border-bottom-color: #DC143C;
+}
+
+.account-btn {
+    margin-left: 15px;
+    padding: 0 !important;
+    border: none !important;
+}
+
+.account-btn a {
+    background-color: #1e3a8a;
+    padding: 10px 20px;
+    border-radius: 6px;
+    color: white !important;
+    font-weight: 600;
+}
+
+.account-btn a:hover {
+    background-color: #2563eb;
+}
+
+.account-btn:hover {
+    background: transparent !important;
 }
 
 @media (max-width: 768px) {
@@ -65,28 +113,17 @@
         padding: 15px;
         font-size: 0.9em;
     }
+    
+    .logo-text h1 {
+        font-size: 1.1em;
+    }
+    
+    .logo-text h2 {
+        font-size: 0.95em;
+    }
+    
+    .logo-emblem {
+        width: 50px;
+        height: 50px;
+    }
 }
-
-.nav-menu {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-}
-
-.account-btn {
-    margin-left: auto;
-}
-
-.account-btn a {
-    background-color: #1e3a8a;
-    padding: 8px 16px;
-    border-radius: 6px;
-    color: white;
-    font-weight: 500;
-}
-
-.account-btn a:hover {
-    background-color: #2563eb;
-}
-
-
