@@ -13,7 +13,8 @@
     <nav class="navbar">
         <div class="nav-container">
             <div class="logo">
-                <h1>🏛️ Nepal Gov Portal</h1>
+                 <img src="./css/nep.webp" alt="Nepal Government Logo" class="logo-emblem">
+                <h3> Nepal Gov Portal</h3>
             </div>
             <ul class="nav-menu">
                 <li class="nav-item"><a href="index.html">Home</a></li>
@@ -34,14 +35,29 @@
 
     <div class="container">
         <div class="controls">
-            <input 
-                type="text" 
-                id="jobSearch" 
-                class="search-box" 
-                placeholder="Search jobs by title, department, or location..."
-                oninput="liveSearchJobs()"
-            >
+            <div style="position: relative; flex: 1; min-width: 250px;">
+                <input
+                    type="text"
+                    id="jobSearch"
+                    class="search-box"
+                    placeholder="Search jobs by title, department, or location..."
+                    oninput="liveSearchJobs()"
+                    onkeydown="handleSearchKey(event)"
+                    onfocus="showSearchHistory()"
+                    onblur="hideSearchHistory()"
+                />
+
+                <div id="searchHistoryDropdown" class="search-history-dropdown">
+                    <div class="history-header">
+                        <span>Recent Searches</span>
+                        <button onclick="clearSearchHistory(event)" class="clear-history-btn">Clear</button>
+                    </div>
+                    <div id="searchHistoryList"></div>
+                </div>
+
+            </div>
         </div>
+
         <div id="jobsGrid" class="grid"></div>
     </div>
 

@@ -139,3 +139,7 @@ app.listen(PORT, () => {
     console.log(`🚀 Server running on http://localhost:${PORT}`);
     console.log(`🤖 AI Chatbot endpoint: http://localhost:${PORT}/api/chatbot/ask`);
 });
+
+import searchHistoryRoutes from './routes/searchHistory.routes.js';
+
+app.use('/api/search-history', searchHistoryRoutes);
