@@ -1,20 +1,22 @@
 .hero {
-    background: white;
-    padding: 50px;
-    border-radius: 20px;
-    box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+    background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+    padding: 60px 50px;
+    border-radius: 15px;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.15);
     text-align: center;
-    margin-bottom: 30px;
+    margin-bottom: 40px;
+    color: white;
 }
 
 .hero h1 {
-    color: #667eea;
-    font-size: 3em;
+    color: white;
+    font-size: 2.8em;
     margin-bottom: 15px;
+    font-weight: 700;
 }
 
 .hero p {
-    color: #666;
+    color: rgba(255,255,255,0.95);
     font-size: 1.3em;
 }
 
@@ -29,16 +31,18 @@
 .feature-card {
     background: white;
     padding: 35px;
-    border-radius: 15px;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
     text-align: center;
     transition: all 0.3s;
     cursor: pointer;
+    border-top: 4px solid #DC143C;
 }
 
 .feature-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 15px 40px rgba(0,0,0,0.25);
+    transform: translateY(-8px);
+    box-shadow: 0 10px 30px rgba(30, 58, 138, 0.2);
+    border-top-color: #1e3a8a;
 }
 
 .feature-icon {
@@ -47,18 +51,25 @@
 }
 
 .feature-card h3 {
-    color: #667eea;
+    color: #1e3a8a;
     margin-bottom: 10px;
     font-size: 1.5em;
+    font-weight: 700;
+}
+
+.feature-card p {
+    color: #666;
+    line-height: 1.6;
 }
 
 /* Career Path (Careers page) */
 .career-path {
     background: white;
     padding: 30px;
-    border-radius: 15px;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
     margin-bottom: 25px;
+    border-left: 5px solid #1e3a8a;
 }
 
 .career-header {
@@ -73,7 +84,7 @@
 }
 
 .career-title {
-    color: #667eea;
+    color: #1e3a8a;
     font-size: 1.8em;
     font-weight: 700;
 }
@@ -86,33 +97,35 @@
 }
 
 .skill-tag {
-    background: #667eea;
+    background: #1e3a8a;
     color: white;
     padding: 8px 16px;
     border-radius: 20px;
     font-size: 0.9em;
+    font-weight: 600;
 }
 
 /* Document Items (Documents page) */
 .document-item {
     background: white;
-    padding: 20px;
+    padding: 25px;
     border-radius: 12px;
-    margin-bottom: 15px;
-    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    margin-bottom: 20px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
     transition: all 0.3s;
+    border-left: 4px solid #DC143C;
 }
 
 .document-item:hover {
-    box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.15);
     transform: translateX(5px);
 }
 
 .doc-title {
-    font-size: 1.3em;
-    color: #667eea;
+    font-size: 1.4em;
+    color: #1e3a8a;
     font-weight: 700;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
 }
 
 .doc-list {
@@ -121,21 +134,37 @@
 }
 
 .doc-list li {
-    padding: 5px 0;
-    padding-left: 25px;
+    padding: 8px 0;
+    padding-left: 30px;
     position: relative;
+    color: #444;
+    line-height: 1.6;
 }
 
 .doc-list li:before {
     content: "✓";
     position: absolute;
     left: 0;
-    color: #48bb78;
+    color: #16a34a;
     font-weight: bold;
+    font-size: 1.2em;
 }
 
 @media (max-width: 768px) {
+    .hero {
+        padding: 40px 30px;
+    }
+    
     .hero h1 {
         font-size: 2em;
+    }
+    
+    .hero p {
+        font-size: 1.1em;
+    }
+    
+    .career-header {
+        flex-direction: column;
+        text-align: center;
     }
 }
