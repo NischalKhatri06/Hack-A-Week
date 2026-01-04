@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+import mongoose from 'mongoose';
 
 const careerSchema = new mongoose.Schema({
     position: { type: String, required: true },
@@ -9,4 +9,4 @@ const careerSchema = new mongoose.Schema({
     exams: { type: String }
 }, { timestamps: true });
 
-module.exports = mongoose.model('Career', careerSchema);
+export default mongoose.model('Career', careerSchema);

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Assistant - Nepal Gov Portal</title>
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/navbar.css">
+    <link rel="stylesheet" href="css/components.css">
+    <style>
+        .chat-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+        .chat-messages {
+            height: 500px;
+            overflow-y: auto;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+        .message {
+            margin-bottom: 15px;
+            padding: 10px 15px;
+            border-radius: 10px;
+            max-width: 80%;
+        }
+        .user-message {
+            background: #667eea;
+            color: white;
+            margin-left: auto;
+            text-align: right;
+        }
+        .ai-message {
+            background: #f0f0f0;
+            color: #333;
+        }
+        .input-area {
+            display: flex;
+            gap: 10px;
+        }
+        .input-area input {
+            flex: 1;
+            padding: 12px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 16px;
+        }
+        .typing-indicator {
+            display: none;
+            color: #666;
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo"><h1>🏛️ Nepal Gov Portal</h1></div>
+            <ul class="nav-menu">
+                <li class="nav-item"><a href="index.html">Home</a></li>
+                <li class="nav-item"><a href="jobs.html">Job Vacancies</a></li>
+                <li class="nav-item"><a href="careers.html">Career Advice</a></li>
+                <li class="nav-item"><a href="complaints.html">Complaints</a></li>
+                <li class="nav-item"><a href="documents.html">Documents</a></li>
+                <li class="nav-item"><a href="chatbot.html">AI Assistant</a></li>
+                <li class="nav-item account-btn"><a href="account.html">Account</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="chat-container">
+            <h2 style="color:#667eea; margin-bottom:20px;">🤖 AI Assistant</h2>
+            <p style="margin-bottom:20px; color:#666;">Ask me anything about government services, jobs, documents, or career guidance!</p>
+            
+            <div class="chat-messages" id="chatMessages">
+                <div class="message ai-message">
+                    Hello! I'm your AI assistant for Nepal Government Services. How can I help you today?
+                </div>
+            </div>
+            
+            <div class="typing-indicator" id="typingIndicator">AI is typing...</div>
+            
+            <div class="input-area">
+                <input 
+                    type="text" 
+                    id="questionInput" 
+                    placeholder="Type your question here..."
+                    onkeypress="if(event.key==='Enter') askQuestion()"
+                >
+                <button class="btn" onclick="askQuestion()">Send</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/chatbot.js"></script>
+</body>
+</html>

@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "Backend for Nepal Government Portal",
   "main": "server.js",
+  "type": "module",
   "scripts": {
     "start": "node server.js",
     "dev": "nodemon server.js"
@@ -13,7 +14,8 @@
     "dotenv": "^16.0.3",
     "express": "^4.18.2",
     "mongodb": "^5.0.0",
-    "mongoose": "^7.0.0"
+    "mongoose": "^7.0.0",
+    "node-fetch": "^3.3.2"
   },
   "devDependencies": {
     "nodemon": "^3.1.11"

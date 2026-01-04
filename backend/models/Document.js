@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+import mongoose from 'mongoose';
 
 const documentSchema = new mongoose.Schema({
     service: { type: String, required: true },
@@ -7,4 +7,4 @@ const documentSchema = new mongoose.Schema({
     info: { type: String }
 }, { timestamps: true });
 
-module.exports = mongoose.model('Document', documentSchema);
+export default mongoose.model('Document', documentSchema);

@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+import mongoose from 'mongoose';
 
 const complaintSchema = new mongoose.Schema({
     name: { type: String, required: true },
@@ -13,4 +13,4 @@ const complaintSchema = new mongoose.Schema({
     date: { type: Date, default: Date.now }
 }, { timestamps: true });
 
-module.exports = mongoose.model('Complaint', complaintSchema);
+export default mongoose.model('Complaint', complaintSchema);

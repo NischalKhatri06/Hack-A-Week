@@ -1,6 +1,6 @@
-const express = require('express');
+import express from 'express';
 const router = express.Router();
-const Complaint = require('../models/Complaint');
+import Complaint from '../models/Complaint.js';
 
 // GET all complaints
 router.get('/', async (req, res) => {
@@ -65,4 +65,4 @@ router.put('/:id/status', async (req, res) => {
     }
 });
 
-module.exports = router;
+export default router;
