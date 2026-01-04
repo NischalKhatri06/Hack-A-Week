@@ -10,6 +10,7 @@ const complaintSchema = new mongoose.Schema({
     description: { type: String, required: true },
     location: { type: String },
     status: { type: String, default: 'pending', enum: ['pending', 'in-progress', 'resolved'] },
+    userId: { type: String, required: true },  // stored as string (ObjectId as string)
     date: { type: Date, default: Date.now }
 }, { timestamps: true });
 

@@ -16,24 +16,26 @@ async function displayComplaintsList() {
     displayComplaints(complaints);
 }
 
+const CURRENT_USER_ID = '64f000000000000000000001'; // replace dynamically after login
 function displayComplaints(complaintList) {
     const grid = document.getElementById('complaintsGrid');
     if(!complaintList || complaintList.length===0) { 
         grid.innerHTML = '<p style="color:white; text-align:center; padding:20px;">No complaints found.</p>'; 
         return; 
     }
+
     grid.innerHTML = complaintList.map(c => `
-        <div class="card">
+        <div class="card" style="${c.userId.toString() === CURRENT_USER_ID ? 'border: 2px solid #667eea;' : ''}">
             <div class="card-title">${c.subject}</div>
             <div class="card-subtitle">${c.department}</div>
             <span class="badge badge-${c.priority}">${c.priority.toUpperCase()}</span>
             <span class="badge badge-${c.status}">${c.status.toUpperCase()}</span>
             <div style="margin:15px 0;color:#555;">
-                <p><strong>👤 Name:</strong> ${c.name}</p>
-                <p><strong>📞 Phone:</strong> ${c.phone}</p>
-                ${c.email ? `<p><strong>📧 Email:</strong> ${c.email}</p>` : ''}
-                ${c.location ? `<p><strong>📍 Location:</strong> ${c.location}</p>` : ''}
-                <p><strong>📅 Submitted:</strong> ${new Date(c.date).toLocaleString()}</p>
+                <p><strong> Name:</strong> ${c.name}</p>
+                <p><strong> Phone:</strong> ${c.phone}</p>
+                ${c.email ? `<p><strong> Email:</strong> ${c.email}</p>` : ''}
+                ${c.location ? `<p><strong>Location:</strong> ${c.location}</p>` : ''}
+                <p><strong>Submitted:</strong> ${new Date(c.date).toLocaleString()}</p>
             </div>
             <div class="info-box"><strong>Description:</strong><br>${c.description}</div>
             <div style="margin-top:15px; display:flex; gap:10px; align-items:center;">
@@ -42,11 +44,14 @@ function displayComplaints(complaintList) {
                     <option value="in-progress" ${c.status==='in-progress'?'selected':''}>In Progress</option>
                     <option value="resolved" ${c.status==='resolved'?'selected':''}>Resolved</option>
                 </select>
-                <button class="btn btn-danger" onclick="deleteComplaint('${c._id}')">Delete</button>
+                ${c.userId.toString() === CURRENT_USER_ID ? `<button class="btn btn-danger" onclick="deleteComplaint('${c._id}')">Delete</button>` : ''}
             </div>
         </div>
     `).join('');
 }
+
+
+
 
 async function addComplaint(e) {
     e.preventDefault();
@@ -58,7 +63,7 @@ async function addComplaint(e) {
         priority: document.getElementById('complaintPriority').value,
         subject: document.getElementById('complaintSubject').value,
         description: document.getElementById('complaintDesc').value,
-        location: document.getElementById('complaintLocation').value
+        location: document.getElementById('complaintLocation').value,
     };
     
     try {
@@ -83,17 +88,28 @@ async function addComplaint(e) {
     }
 }
 
-async function deleteComplaint(id){
-    if(!confirm("Delete this complaint?")) return;
-    
+async function deleteComplaint(id) {
+    if (!confirm("Are you sure you want to delete this complaint?")) return;
+
     try {
-        await fetch(`http://localhost:3000/api/complaints/${id}`, { method:'DELETE' });
-        displayComplaintsList();
-    } catch(err) {
+        const res = await fetch(`http://localhost:3000/api/complaints/${id}`, {
+            method: 'DELETE'
+        });
+
+        const data = await res.json();
+
+        if (res.ok) {
+            displayComplaintsList();
+            alert(data.message);
+        } else {
+            alert(data.error);  // show backend error (e.g., not your complaint)
+        }
+    } catch (err) {
         console.error('Error deleting complaint:', err);
         alert('Failed to delete complaint');
     }
 }
+
 
 async function updateComplaintStatus(id, status){
     try {
